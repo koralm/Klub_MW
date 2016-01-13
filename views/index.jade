@@ -4,70 +4,101 @@ block content
   .container(style='width: 100%;')
     .tile-area.tile-area-scheme-lightOlive.fg-white
       h1.tile-area-title Klub Młodego Wynalazcy
+      .tile-area-controls
+            button.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="showCharms('#charmSearch')")
+                span.mif-search
+            button.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="showCharms('#charmSettings')")
+                span.mif-cog
+            a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='../tiles.html')
+                span.mif-switch
 
     .tile-group
-        span.tile-group-title BioChem Duże
+        span.tile-group-title Labolatorium 1
         .tile-container
-          .tile-large.bg-steel.fg-white(data-role='tile')
-            #weather_bg.tile-content(style='background: top left no-repeat; background-size: cover')
-            .padding100 BioChem Duże
+          .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+            #BioLChemD.tile-content(style='background: top left no-repeat; background-size: cover')
+                .live-slide
+                    .padding50
+                        h1 BioChem Duże
+            .tile-label Labolatorium BioChem Duże
 
     .tile-group
-        span.tile-group-title BioChem Duże
+        span.tile-group-title Labolatorium 2
         .tile-container
-          .tile-large.bg-steel.fg-white(data-role='tile')
-            #weather_bg.tile-content(style='background: top left no-repeat; background-size: cover')
-            .padding100 BioChem Duże
+          .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+            #BioLChemM.tile-content(style='background: top left no-repeat; background-size: cover')
+                .live-slide
+                    .padding50
+                        h1 BiolChem Małe
+            .tile-label Labolatorium BiolChem Małe
 
     .tile-group
-        span.tile-group-title BioChem Duże
+        span.tile-group-title Labolatorium 3
         .tile-container
-          .tile-large.bg-steel.fg-white(data-role='tile')
-            #weather_bg.tile-content(style='background: top left no-repeat; background-size: cover')
-            .padding100 BioChem Duże
+          .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+            #FizChem.tile-content(style='background: top left no-repeat; background-size: cover')
+                .live-slide
+                    .padding50
+                        h1 FizChem PCA
+            .tile-label Labolatorium FizChem PCA
 
     .tile-group
-        span.tile-group-title BioChem Duże
+        span.tile-group-title Labolatorium 4
         .tile-container
-          .tile-large.bg-steel.fg-white(data-role='tile')
-            #weather_bg.tile-content(style='background: top left no-repeat; background-size: cover')
-            .padding100 BioChem Duże
+          .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+            #Elektr_Cyber.tile-content(style='background: top left no-repeat; background-size: cover')
+                .live-slide
+                    .padding50
+                        h1 Elektr-Cyber
+            .tile-label Labolatorium Elektr-Cyber
 
     .tile-group
-        span.tile-group-title BioChem Duże
+        span.tile-group-title Labolatorium 5
         .tile-container
-          .tile-large.bg-steel.fg-white(data-role='tile')
-            #weather_bg.tile-content(style='background: top left no-repeat; background-size: cover')
-            .padding100 BioChem Duże
-    .tile-group
-        span.tile-group-title BioChem Duże
-        .tile-container
-          .tile-large.bg-steel.fg-white(data-role='tile')
-            #weather_bg.tile-content(style='background: top left no-repeat; background-size: cover')
-            .padding100 BioChem Duże
+            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                #Dzieci_mlodsze.tile-content(style='background: top left no-repeat; background-size: cover')
+                    .live-slide
+                        .padding50
+                            h1 Dzieci młodsze
+                .tile-label Labolatorium Dzieci młodszych
 
     .tile-group
-        span.tile-group-title BioChem Duże
+        span.tile-group-title Labolatorium 6
         .tile-container
-          .tile-large.bg-steel.fg-white(data-role='tile')
-            #weather_bg.tile-content(style='background: top left no-repeat; background-size: cover')
-            .padding100 BioChem Duże
+            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                #Fiz_OZE.tile-content(style='background: top left no-repeat; background-size: cover')
+                    .live-slide
+                        .padding50
+                            h1 Fizyki i OZE
+                .tile-label Labolatorium Fizyki i OZE
 
     .tile-group
-        span.tile-group-title BioChem Duże
+        span.tile-group-title Pracownia 1
         .tile-container
-          .tile-large.bg-steel.fg-white(data-role='tile')
-            #weather_bg.tile-content(style='background: top left no-repeat; background-size: cover')
-            .padding100 BioChem Duże
+          .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+            #Prac_gen.tile-content(style='background: top left no-repeat; background-size: cover')
+                .image-container
+                    .frame
+                        .live-slide
+                            img(src='/pictures/Genetics/DNA_1.jpg', data-role='fitImage', data-format='fill')
+                        .live-slide
+                            img(src='/pictures/Genetics/DNA_2.jpg', data-role='fitImage', data-format='fill')
+                    .image-overlay.op-green
+                        h2 Pracownia Genetyki
+                        p
+                            | Zajęcia dotyczące genetyki.
+                            | Zajęcia dotyczące genetyki.
+            .tile-label Pracownia Genetyki
 
-  //.container.page-content
-    .flex-grid
-      .row.flex-align-center
-        .cell.debug
-          .tile.tile-large(data-role='tile') 1
-        .cell.debug
-          .tile.tile-large(data-role='tile') 2
-        .cell.debug
-          .tile.tile-large(data-role='tile') 3
-        .cell.debug
-          .tile.tile-large(data-role='tile') 4
+    .tile-group
+        span.tile-group-title Pracownia 2
+        .tile-container
+            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                #RK_INV.tile-content(style='background: top left no-repeat; background-size: cover')
+                    .live-slide
+                        .padding50
+                            h1 Pracownia RK_INV
+                .tile-label#ABC
+
+    script.
+        $("#ABC").html('!{dupa}')
