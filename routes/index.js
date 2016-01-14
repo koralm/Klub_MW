@@ -16,4 +16,11 @@ router.get('/add', function(req, res, next) {
   res.render('settings/worksheet/add', { title: 'Klub Młodego Wynalazcy', dupa: 5 });
 });
 
+router.post('/add', function(req, res){
+  var obj = {};
+  console.log('body: ' + JSON.stringify(req.body));
+  res.send(req.body);
+});
+
 module.exports = router;
+

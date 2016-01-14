@@ -1,5 +1,8 @@
 extends ../../layout
 
+block scripts
+    script(src='javascripts/add_scripts.js')
+
 block content
     .container(style='width: 100%;')
         .tile-area.tile-area-scheme-lightOlive.fg-white
@@ -19,7 +22,7 @@ block content
                     h1.no-margin-top Dodawanie karty pracy
                     hr(style='height:3px').bg-white
         .worksheet.bg-lime(data-text='stylized lists')
-            .wizard(data-role='wizard')
+            .wizard(id="koc", data-role='wizard', data-on-finish="sd")
                 .steps
                     .step
                         .grid
@@ -81,6 +84,9 @@ block content
                                                     .cell
                                                         .input-control.textarea.full-size(data-role='input', data-text-auto-resize="true")
                                                             textarea(id='WS_description')
+
+
+
 
 //.worksheet.bg-lime(data-text='stylized lists')
     .grid
