@@ -6,8 +6,15 @@ html
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-icons.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-responsive.css')
+    link(rel='stylesheet', href='select2/dist/css/select2.css')
+
     script(src='jquery/dist/jquery.js')
     script(src='Metro-UI-CSS-master/build/js/metro.js')
+    script(src='select2/dist/js/select2.full.js')
+
+    //script(type='text/javascript').
+      $('select').select2();
+
   body.bg-lightOlive
     style.
       .tile-area-controls {
@@ -16,3 +23,4 @@ html
         top: 40px;
       }
     block content
+

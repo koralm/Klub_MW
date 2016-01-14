@@ -7,10 +7,10 @@ block content
       .tile-area-controls
             button.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="showCharms('#charmSearch')")
                 span.mif-search
-            button.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="showCharms('#charmSettings')")
+            a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='../options')
                 span.mif-cog
-            a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='../tiles.html')
-                span.mif-switch
+            a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='/')
+                span.mif-lg.mif-home
 
     .tile-group
         span.tile-group-title Labolatorium 1
@@ -98,7 +98,7 @@ block content
                     .live-slide
                         .padding50
                             h1 Pracownia RK_INV
-                .tile-label#ABC
+                .tile-label Pracownia RK_INV
 
     script.
         $("#ABC").html('!{dupa}')
