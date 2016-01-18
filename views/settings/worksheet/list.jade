@@ -3,78 +3,6 @@ extends ../../layout
 block scripts
     script(src='javascripts/list_scripts.js')
 
-    script.
-        $(document).ready(function () {
-
-            $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,basicWeek,basicDay'
-                },
-                defaultDate: '2016-01-12',
-                editable: true,
-                eventLimit: true, // allow "more" link when too many events
-                events: [
-                    {
-                        title: 'All Day Event',
-                        start: '2016-01-01'
-                    },
-                    {
-                        title: 'Long Event',
-                        start: '2016-01-07',
-                        end: '2016-01-10'
-                    },
-                    {
-                        id: 999,
-                        title: 'Repeating Event',
-                        start: '2016-01-09T16:00:00'
-                    },
-                    {
-                        id: 999,
-                        title: 'Repeating Event',
-                        start: '2016-01-16T16:00:00'
-                    },
-                    {
-                        title: 'Conference',
-                        start: '2016-01-11',
-                        end: '2016-01-13'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: '2016-01-12T10:30:00',
-                        end: '2016-01-12T12:30:00'
-                    },
-                    {
-                        title: 'Lunch',
-                        start: '2016-01-12T12:00:00'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: '2016-01-12T14:30:00'
-                    },
-                    {
-                        title: 'Happy Hour',
-                        start: '2016-01-12T17:30:00'
-                    },
-                    {
-                        title: 'Dinner',
-                        start: '2016-01-12T20:00:00'
-                    },
-                    {
-                        title: 'Birthday Party',
-                        start: '2016-01-13T07:00:00'
-                    },
-                    {
-                        title: 'Click for Google',
-                        url: 'http://google.com/',
-                        start: '2016-01-28'
-                    }
-                ]
-            });
-
-        });
-
 block content
     .container(style='width: 100%;')
         .tile-area.tile-area-scheme-lightOlive.fg-white
@@ -86,12 +14,43 @@ block content
                     span.mif-cog
                 a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='/')
                     span.mif-lg.mif-home
-    .container(style='width: 80%;')
-        #calendar
 
-//    .container.page-content
-        h1#kon
+    .container.page-content
+        .flex-grid
+            .row.cell-auto-size
+                .cell
+                    h1.no-margin-top Baza kart pracy
+                    hr(style='height:3px').bg-white
+        table#example.display(cellspacing='0', width='100%')
 
-//    script.
-        var frontEndData = !{JSON.stringify([1].instrukcja)}
-        $("#kon").text(frontEndData);
+
+    script.
+
+        var frontEndData = !{JSON.stringify(kon)}
+
+        $(document).ready(function () {
+
+            $('#example').DataTable({
+                "select": true,
+                "data": frontEndData,
+                "dom": 'Bfrtip',
+                "buttons": [
+                    {
+                        text: 'Edytuj',
+                        action: function ( e, dt, node, config ) {
+                            alert(
+                            'Row data: '+
+                            JSON.stringify( dt.row( { selected: true } ).data() )
+                            );
+                        },
+                    }
+                ],
+                "columns": [
+                    {"title": "Temat doświadczenia", "data": "temat_doswiadczenia"},
+                    {"title": "Czas trwania", "data": "czas_trwania"},
+                    {"title": "Dodał", "data": "uzytkownik"},
+                    {"title": "Labolatorium", "data": "labolatorium"}
+                ]
+            });
+        });
+

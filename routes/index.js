@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+var db_get = require('../models/db_get');
 var db = require('../models/db');
 var db_save = require('../models/db_save');
-var db_get = require('../models/db_get');
+db_get.WS_load()
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -20,19 +22,23 @@ router.get('/add', function(req, res, next) {
   res.render('settings/worksheet/add', { title: 'Klub Młodego Wynalazcy'});
 });
 
+
+
 /* GET settings/add page. */
+router.get('/list', function(req, res, next) {
+  res.render('settings/worksheet/list', { title: 'Klub Młodego Wynalazcy', kon: db_get.WS_load()});
+});
+
 router.post('/add', function(req, res){
   var  WS_data = req.body;
   db_save.WS_add(WS_data);
+  db_get.WS_load()
   res.send(req.body);
 });
 
 /* GET settings/add page. */
-router.get('/list', function(req, res, next) {
-  db.karty_pracy.find().exec(function (err, karty_pracy) {
-    res.render('settings/worksheet/list', karty_pracy);
-    //console.log(karty_pracy)
-  });
+router.get('/calendar', function(req, res, next) {
+    res.render('settings/worksheet/calendar', karty_pracy);
 });
 
 /* GET settings/add page. */

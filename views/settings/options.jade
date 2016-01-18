@@ -22,7 +22,7 @@ block content
                             .padding50
                                 h1 Dodaj kartę pracy
                     .tile-label Dodaj kartę pracy
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../list';")
                     #Show_worksheet.tile-content(style='background: top left no-repeat; background-size: cover')
                         .live-slide
                             .padding50
@@ -33,7 +33,7 @@ block content
         .tile-group
             span.tile-group-title Obciązenie labolatoriów
             .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../list';")
+                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../calendar';")
                     #Calendar.tile-content(style='background: top left no-repeat; background-size: cover')
                         .live-slide
                             .padding50
