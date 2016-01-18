@@ -3,6 +3,7 @@ extends ../../layout
 block scripts
     script(src='javascripts/add_scripts.js')
 
+
 block content
     .container(style='width: 100%;')
         .tile-area.tile-area-scheme-lightOlive.fg-white
@@ -21,8 +22,23 @@ block content
                 .cell
                     h1.no-margin-top Dodawanie karty pracy
                     hr(style='height:3px').bg-white
+            .row.cell-auto-size
+                .cell
+                    .h3 Dotyczy labolatoriów:
+                    select.lab-list.full-size(multiple='multiple')
+                        option
+                            option(value='BioChem Duże') BioChem Duże
+                            option(value='BioChem Małe') BioChem Małe
+                            option(value='FizChem PCA') FizChem PCA
+                            option(value='Elektr-Cyber') Elektr-Cyber
+                            option(value='Dzieci Młodsze') Dzieci Młodsze
+                            option(value='Fizyki i OZE') Fizyki i OZE
+                            option(value='Prac Genetyki') Prac Genetyki
+                            option(value='Prac RK_INV') Prac RK_INV
+
+
         .worksheet.bg-lime(data-text='stylized lists')
-            .wizard(id="koc", data-role='wizard', data-on-finish="sd")
+            .wizard(id="WS_wizard", data-role='wizard', data-on-finish="post_WS", data-on-cancel="location.href = './options'", data-stepper-clickable="true")
                 .steps
                     .step
                         .grid
@@ -84,54 +100,22 @@ block content
                                                     .cell
                                                         .input-control.textarea.full-size(data-role='input', data-text-auto-resize="true")
                                                             textarea(id='WS_description')
-
-
-
-
-//.worksheet.bg-lime(data-text='stylized lists')
-    .grid
-        .row
-            .cell
-                ul.step-list
-                    li
-                        h2.no-margin-top Temat doświadczenia
-                        hr.bg-red
-                        div
-                            | Proszę o podanie tematu doświadczenia:
-                        .input-control.text.full-size
-                            input(id='WS_title', type='text', placeholder='Tutaj pisać')
-                    li
-                        h2.no-margin-top Metoda badania
-                        hr.bg-green
-                        div
-                            | Proszę o podanie podtytułu lub metoty badania:
-                        .input-control.text.full-size
-                            input(id='WS_subtitle', type='text', placeholder='Tutaj pisać')
-
-                    li
-                        h2.no-margin-top Niezbędne rekwizyty
-                        hr.bg-blue
-                        div
-                            | Use the same user accounts and groups in the cloud that you already use on premises.
-                            br
-                            a(href='') Set up directory integration
-                            a(href='') Download the preview of Azure AD Content
-                            br
-                            br
-                            button.button.success Add domain
-                    li
-                        h2.no-margin-top Get Azure AD Premium
-                        hr.bg-blue
-                        div
-                            | Improve access management experiences for end users and administrators, including self service password reset, group management, sign in customization, and reporting.
-                            br
-                            br
-                            button.button.primary Add domain
-                    li
-                        h2.no-margin-top Get Azure AD Premium
-                        hr.bg-blue
-                        div
-                            | Improve access management experiences for end users and administrators, including self service password reset, group management, sign in customization, and reporting.
-                            br
-                            br
-                            button.button.primary Add domain
+                    .step
+                        .grid
+                            .row
+                                .cell
+                                    ul.step-list
+                                        li
+                                            h2.no-margin-top Czas trwania
+                                            hr.bg-red
+                                            div
+                                                | Proszę o podanie czasu trwania zajęć (w minutach):
+                                            .input-control.text.full-size
+                                                input(id='WS_duration_time', type='number', placeholder='Tutaj pisać')
+                                        li
+                                            h2.no-margin-top Autor
+                                            hr.bg-green
+                                            div
+                                                | Proszę o podanie identyfikatora autora:
+                                            .input-control.text.full-size
+                                                input(id='WS_author', type='text', placeholder='Tutaj pisać')

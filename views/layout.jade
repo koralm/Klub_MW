@@ -3,19 +3,26 @@ html
   head
     title= title
     //link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='fullcalendar/dist/fullcalendar.min.css', rel='stylesheet')
+    link(href='fullcalendar/dist/fullcalendar.print.css', rel='stylesheet', media='print')
+    link(href='fullcalendar-schedule/scheduler.min.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='DataTables/datatables.css')
+    link(rel='stylesheet', href='select2/dist/css/select2.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-icons.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-responsive.css')
-    link(rel='stylesheet', href='select2/dist/css/select2.css')
 
+
+    script(src='moment/moment.js')
     script(src='jquery/dist/jquery.js')
+    script(src='fullcalendar/dist/fullcalendar.js')
+    script(src='fullcalendar-schedule/scheduler.js')
+
     script(src='Metro-UI-CSS-master/build/js/metro.js')
     script(src='select2/dist/js/select2.full.js')
+    //script(type='text/javascript', src='DataTables/datatables.js')
 
     block scripts
-
-    //script(type='text/javascript').
-      $('select').select2();
 
   body.bg-lightOlive
     style.

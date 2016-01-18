@@ -33,13 +33,13 @@ block content
         .tile-group
             span.tile-group-title Obciązenie labolatoriów
             .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../list';")
                     #Calendar.tile-content(style='background: top left no-repeat; background-size: cover')
                         .live-slide
                             .padding50
                                 h1 Sprawdź wolne terminy
                     .tile-label Kalendarz
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../scheduler';")
                     #Scheduler.tile-content(style='background: top left no-repeat; background-size: cover')
                         .live-slide
                             .padding50
