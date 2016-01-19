@@ -21,7 +21,7 @@ function post_WS(){
         type: 'POST',
         data: JSON.stringify( WS_data),
         contentType: 'application/json',
-        url: 'http://localhost:3000/add',
+        url: '/add',
         success: function(data) {
             alert("Karta dodana pomyślnie");
             window.location.replace('./add');

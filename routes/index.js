@@ -26,7 +26,7 @@ router.get('/add', function(req, res, next) {
 
 /* GET settings/add page. */
 router.get('/list', function(req, res, next) {
-  res.render('settings/worksheet/list', { title: 'Klub Młodego Wynalazcy', kon: db_get.WS_load()});
+  res.render('settings/worksheet/list', { title: 'Klub Młodego Wynalazcy', WS_data: db_get.WS_load()});
 });
 
 router.post('/add', function(req, res){
