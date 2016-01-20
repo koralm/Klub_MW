@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+    .container(style='width: 100%;')
+        .tile-area.tile-area-scheme-lightOlive.fg-white
+            h1.tile-area-title Klub Młodego Wynalazcy
+            .tile-area-controls
+                button.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="showCharms('#charmSearch')")
+                    span.mif-search
+                a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='../options')
+                    span.mif-cog
+                a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='/')
+                    span.mif-lg.mif-home
+
+    .container.page-content
+        form.dropzone(action='/BioChemD' id="myAwesomeDropzone" method="post")
+
+
+    script.
+        Dropzone.options.myAwesomeDropzone = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 2, // MB
+            addRemoveLinks: "true",
+            dictRemoveFile: "Usuń plik",
+            createImageThumbnails: "true",
+            dictDefaultMessage: "Aby dodać pliki przeciągnij je lub klinij na pole"
+        };

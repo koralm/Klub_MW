@@ -3,6 +3,24 @@ extends ../../layout
 block scripts
     script(src='javascripts/add_scripts.js')
 
+    script.
+        $(function () {
+            $('.fileupload').fileupload({
+                dataType: 'json',
+                add: function (e, data) {
+                    alert("dupa")
+                    data.context = $('<button/>').text('Upload')
+                            .appendTo(document.body)
+                            .click(function () {
+                                data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                                data.submit();
+                            });
+                },
+                done: function (e, data) {
+                    data.context.text('Upload finished.');
+                }
+            });
+        });
 
 block content
     .container(style='width: 100%;')
@@ -100,6 +118,20 @@ block content
                                                     .cell
                                                         .input-control.textarea.full-size(data-role='input', data-text-auto-resize="true")
                                                             textarea(id='WS_description')
+                    .step
+                        .grid
+                            .row
+                                .cell
+                                    ul.step-list
+                                        li
+                                            h2.no-margin-top Obrazy pomocnicze
+                                            hr.bg-red
+                                            div
+                                                | Proszę o dodanie obrazów lub zdjęć pomocniczych:
+                                            .grid
+                                                .row
+                                                    .cell
+                                                        form.dropzone(action='/add' id="myAwesomeDropzone" method="post")
                     .step
                         .grid
                             .row

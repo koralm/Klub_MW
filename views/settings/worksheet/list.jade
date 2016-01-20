@@ -47,10 +47,7 @@ block content
                     {
                         text: 'Usuń',
                         action: function (e, dt, node, config) {
-                            alert(
-                                    'Row data: ' +
-                                    JSON.stringify(dt.row({selected: true}).data())
-                            );
+                            row_delete(dt.row({selected: true}).data())
                         },
                     }
                 ],

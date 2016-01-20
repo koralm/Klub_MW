@@ -5,10 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var connect = require('connect');
+var methodOverride = require('method-override');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
 
 //NEW ADD
 //MONGO DB
@@ -30,6 +34,9 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+//app.use(methodOverride());
+//app.use(bodyParser({keepExtensions:true,uploadDir:path.join(__dirname,'/files')}));
 
 //MOONGOSE
 mongoose.connect('mongodb://188.125.237.131:5081/Klub_MW');
