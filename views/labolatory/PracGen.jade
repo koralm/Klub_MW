@@ -1,7 +1,4 @@
-extends ../../layout
-
-block scripts
-    script(src='javascripts/list_scripts.js')
+extends ../layout
 
 block content
     .container(style='width: 100%;')
@@ -19,43 +16,23 @@ block content
         .flex-grid
             .row.cell-auto-size
                 .cell
-                    h1.no-margin-top Baza kart pracy
+                    h1.no-margin-top Witamy w Labolatorium Genetyki
+                    h3.no-margin-top Poniżej znajduje się lista aktywnych kart pracy
                     hr(style='height:3px').bg-white
-        table#example.display(cellspacing='0', width='100%')
-
+        table#Lita_PracGen.display(cellspacing='0', width='100%')
 
     script.
         var WS_dataJSON = !{JSON.stringify(WS_data)}
 
         $(document).ready(function () {
 
-            $('#example').DataTable({
+            $('#Lita_PracGen').DataTable({
                 "select": true,
                 "data": WS_dataJSON,
-                "dom": 'Bfrtip',
-                "buttons": [
-                    {
-                        text: 'Edytuj',
-                        action: function ( e, dt, node, config ) {
-                            alert(
-                            'Row data: '+
-                            JSON.stringify( dt.row( { selected: true } ).data() )
-                            );
-                        },
-                    },
-                    {
-                        text: 'Usuń',
-                        action: function (e, dt, node, config) {
-                            row_delete(dt.row({selected: true}).data())
-                        },
-                    }
-                ],
                 "columns": [
                     {"title": "Temat doświadczenia", "data": "temat_doswiadczenia"},
                     {"title": "Czas trwania [min]", "data": "czas_trwania"},
                     {"title": "Dodał", "data": "uzytkownik"},
-                    {"title": "Labolatorium", "data": "labolatorium"}
                 ]
             });
         });
-

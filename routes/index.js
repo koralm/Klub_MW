@@ -45,17 +45,16 @@ var upload = multer({ dest: 'uploads/' })
 
 /*>>>>>>>>>>>>>>ADD<<<<<<<<<<<<<<<*/
 router.post('/add', upload.single( 'file' ), function(req, res){
-  var  WS_data = req.body.WS_data;
+  var WS_data = req.body.WS_data;
+  console.log(req.body);
   db_save.WS_add(WS_data);
   db_get.WS_load();
-  console.log(WS_data);
-  console.log(req.files);
   res.send(req.body);
 });
 
 /* GET settings/add page. */
 router.get('/calendar', function(req, res, next) {
-    res.render('settings/worksheet/calendar', karty_pracy);
+    res.render('settings/worksheet/calendar', { title: 'Klub Młodego Wynalazcy'});
 });
 
 /* GET settings/add page. */
@@ -64,15 +63,19 @@ router.get('/scheduler', function(req, res, next) {
 });
 
 /* GET settings/add page. */
+router.get('/PracGen', function(req, res, next) {
+    res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy'});
+});
+
+/* GET settings/add page. */
 router.get('/BioChemD', function(req, res, next) {
     res.render('labolatory/BioChemD', { title: 'Klub Młodego Wynalazcy'});
 });
 
-
 /*
-router.post('/add', upload.single( 'file' ), function(req, res){
-    console.log(req.body);
-    console.log(req.files);
+router.post('/BioChemD', upload.single( 'file' ), function(req, res){
+    //console.log(req.body);
+    //console.log(req.files);
     res.send(req.body);
 });*/
 
