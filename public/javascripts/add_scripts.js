@@ -1,3 +1,5 @@
+var pictures = [];
+
 $(function () {
     $(".lab-list").select2({
         placeholder: "Proszę wybrać labolatoria których dotyczy karta pracy",
@@ -17,11 +19,12 @@ function post_WS(){
     WS_data.WS_accesories = $('#WS_accesories').val();
     WS_data.WS_description = $('#WS_description').val();
     WS_data.WS_duration_time = $('#WS_duration_time').val();
+    WS_data.WS_pictures = pictures;
     WS_data.WS_author = $('#WS_author').val();
     WS_data.WS_labolatory = $('.lab-list').val();
 
 
-    add_data = {WS_data: WS_data};
+    add_data = {WS_data: WS_data, test: "test.post"};
 
     $.ajax({
         type: 'POST',
@@ -36,16 +39,16 @@ function post_WS(){
     });
 }
 
-function dupa() {
-    var data = $('.lab-list').val();
-    alert(data);
-}
-
-
     Dropzone.options.myAwesomeDropzone = {
     paramName: "file", // The name that will be used to transfer the file
     maxFilesize: 2, // MB
     addRemoveLinks: "true",
     dictRemoveFile: "Usuń plik",
     createImageThumbnails: "true",
-    dictDefaultMessage: "Aby dodać pliki przeciągnij je lub klinij na pole"}
+    dictDefaultMessage: "Aby dodać pliki przeciągnij je lub klinij na pole",
+        init: function() {
+            this.on("success", function(file, response) {
+                    file.serverId = response;
+                    pictures.push(response);
+            });
+        }}

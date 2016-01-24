@@ -16,13 +16,14 @@ db.once('open', function() {
 var karta_pracy = new Schema({
     temat_doswiadczenia: String,
     sub_temat_doswiadczenia: String,
-    odczynniki: String,
-    sprzęt: String,
-    akcesoria: String,
+    odczynniki: Array,
+    sprzęt: Array,
+    akcesoria: Array,
     instrukcja: String,
     uzytkownik: String,
-    labolatorium: String,
+    labolatorium: Array,
     czas_trwania: Number,
+    obrazki: Array,
     stan_aktywnosci: { type: Number, default: 0 },
     updated: { type: Date, default: Date.now},
 });

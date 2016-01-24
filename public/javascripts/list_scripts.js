@@ -10,3 +10,4 @@ function row_delete(row_data){
             window.location.replace('/list');
         }
     })};
+

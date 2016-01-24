@@ -4,32 +4,84 @@ block scripts
     script(src='javascripts/list_scripts.js')
 
 block content
-    .container(style='width: 100%;')
-        .tile-area.tile-area-scheme-lightOlive.fg-white
-            h1.tile-area-title Klub Młodego Wynalazcy
-            .tile-area-controls
-                button.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="showCharms('#charmSearch')")
-                    span.mif-search
-                a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='../options')
-                    span.mif-cog
-                a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='/')
-                    span.mif-lg.mif-home
-
-    .container.page-content
+    .container.margtop.page-content
         .flex-grid
             .row.cell-auto-size
                 .cell
                     h1.no-margin-top Baza kart pracy
                     hr(style='height:3px').bg-white
-        table#example.display(cellspacing='0', width='100%')
+        table#WS_list.display(cellspacing='0', width='100%')
 
+    #dialog9(data-role='dialog', data-close-button='true', data-overlay='true', data-overlay-color='op-dark', data-overlay-click-close='true')
+            .example(data-text='Edycja')
+                .grid
+                    .row.cells1
+                        .grid.demo-grid
+                            .row.cells12
+                                .cell.offset11 Edycja
+                            .accordion(data-role='accordion', data-close-any="true")
+                                .frame.active
+                                    .heading.full-size Temat doświadczenia
+                                    .content
+                                        .input-control.text.full-size
+                                            input(id='EWS_title', type='text', placeholder='Pole tekstowe')
+                                .frame
+                                    .heading.full-size Podtytuł lub metota badania
+                                    .content
+                                        .input-control.text.full-size
+                                            input(id='EWS_subtitle', type='text', placeholder='Pole tekstowe')
+                                .frame
+                                    .heading.full-size Odczynnki
+                                    .content
+                                        .input-control.text.full-size
+                                            input(id='EWS_reagent', type='text', placeholder='Tutaj pisać')
+                                .frame
+                                    .heading.full-size Sprzęt labolatoryjny
+                                    .content
+                                        .input-control.text.full-size
+                                            input(id='EWS_equipment', type='text', placeholder='Tutaj pisać')
+                                .frame
+                                    .heading.full-size Akcesoria
+                                    .content
+                                        .input-control.text.full-size
+                                            input(id='EWS_accesories', type='text', placeholder='Tutaj pisać')
+                                .frame
+                                    .heading.full-size Instrukcja ćwiczenia
+                                    .content
+                                        .input-control.textarea.full-size(data-role='input', data-text-auto-resize="true")
+                                            textarea(id='EWS_description')
+                                .frame
+                                    .heading.full-size Czas trwania
+                                    .content
+                                        .input-control.text.full-size
+                                            input(id='EWS_duration_time', type='number', placeholder='Tutaj pisać')
+                                .frame
+                                    .heading.full-size Aktywność
+                                    .content
+                                        .input-control.text.full-size
+                                            input(id='EWS_active', type='number', placeholder='Tutaj pisać')
+                                .frame
+                                    .heading.full-size Wybrane Labolatoria
+                                    .content
+                                        select#EWS_LabL.lab-list.full-size(multiple='multiple')
+                                            option
+                                                option(value='BioChem Duże') BioChem Duże
+                                                option(value='BioChem Małe') BioChem Małe
+                                                option(value='FizChem PCA') FizChem PCA
+                                                option(value='Elektr-Cyber') Elektr-Cyber
+                                                option(value='Dzieci Młodsze') Dzieci Młodsze
+                                                option(value='Fizyki i OZE') Fizyki i OZE
+                                                option(value='Prac Genetyki') Prac Genetyki
+                                                option(value='Prac RK_INV') Prac RK_INV
+                            button(onclick='conf_update()').button.success Potwierdź zmiany
 
     script.
         var WS_dataJSON = !{JSON.stringify(WS_data)}
+        var id= 0;
 
         $(document).ready(function () {
 
-            $('#example').DataTable({
+            $('#WS_list').DataTable({
                 "select": true,
                 "data": WS_dataJSON,
                 "dom": 'Bfrtip',
@@ -37,10 +89,22 @@ block content
                     {
                         text: 'Edytuj',
                         action: function ( e, dt, node, config ) {
-                            alert(
-                            'Row data: '+
-                            JSON.stringify( dt.row( { selected: true } ).data() )
-                            );
+                            WS_data = dt.row( { selected: true } ).data()
+
+                            var dialog = $('#dialog9').data('dialog');
+                            dialog.open();
+
+                            id = WS_data._id;
+                            $('#EWS_title').val(WS_data.temat_doswiadczenia);
+                            $('#EWS_subtitle').val(WS_data.sub_temat_doswiadczenia);
+                            $('#EWS_reagent').val(WS_data.odczynniki);
+                            $('#EWS_equipment').val(WS_data.sprzęt);
+                            $('#EWS_accesories').val(WS_data.akcesoria);
+                            $('#EWS_description').val(WS_data.instrukcja);
+                            $('#EWS_duration_time').val(WS_data.czas_trwania);
+                            $('#EWS_author').val(WS_data.uzytkownik);
+                            $('#EWS_active').val(WS_data.stan_aktywnosci);
+                            $('#EWS_LabL').val(WS_data.labolatorium);
                         },
                     },
                     {
@@ -54,8 +118,36 @@ block content
                     {"title": "Temat doświadczenia", "data": "temat_doswiadczenia"},
                     {"title": "Czas trwania [min]", "data": "czas_trwania"},
                     {"title": "Dodał", "data": "uzytkownik"},
-                    {"title": "Labolatorium", "data": "labolatorium"}
+                    {"title": "Labolatorium", "data": "labolatorium"},
+                    {"title": "Aktywne", "data": "stan_aktywnosci"}
+
                 ]
             });
         });
 
+        function conf_update() {
+
+            var UWS_data = {};
+            UWS_data._id = id;
+            UWS_data.WS_title = $('#EWS_title').val();
+            UWS_data.WS_subtitle = $('#EWS_subtitle').val();
+            UWS_data.WS_reagent = $('#EWS_reagent').val();
+            UWS_data.WS_equipment = $('#EWS_equipment').val();
+            UWS_data.WS_accesories = $('#EWS_accesories').val();
+            UWS_data.WS_description = $('#EWS_description').val();
+            UWS_data.WS_duration_time = $('#EWS_duration_time').val();
+            UWS_data.WS_active = $('#EWS_active').val();
+            UWS_data.WS_labolatory = $('#EWS_LabL').val();
+
+
+            $.ajax({
+                type: 'POST',
+                data: JSON.stringify(UWS_data),
+                contentType: 'application/json',
+                url: '/list_update',
+                success: function (data) {
+                    alert("Karta zmodyfikowana pomyślnie")
+                    window.location.replace('/list');}
+
+            })
+        }

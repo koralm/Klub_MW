@@ -12,32 +12,116 @@ html
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-icons.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-responsive.css')
+    link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-schemes.css')
 
-
-
-
-    script(src='moment/moment.js')
     script(src='jquery/dist/jquery.js')
+    script(src='moment/moment.js')
+    script(src='jquery-ui/jquery-ui.js')
 
 
     script(src='dropzone/dist/dropzone.js')
+    script(src='DataTables/datatables.js')
 
     script(src='Metro-UI-CSS-master/build/js/metro.js')
-    script(src='DataTables/datatables.js')
+
+
     script(src='select2/dist/js/select2.full.js')
 
     script(src='fullcalendar/dist/fullcalendar.js')
     script(src='fullcalendar-schedule/scheduler.js')
-
+    script(src='scrolltofixed/jquery-scrolltofixed.js')
 
     block scripts
 
   body.bg-lightOlive
     style.
-      .tile-area-controls {
-        position: fixed;
-        right: 40px;
-        top: 40px;
+      .serif {
+        font-family: "Open Sans Light", Times, serif;
+        color: white;
+        margin-left: 40px;
       }
+
+      .margtop {
+        margin-top: 100px;
+      }
+
+      .margbotop {
+        margin-top: 100px;
+        margin-bottom: 150px;
+      }
+
+      .margbot {
+        margin-bottom: 100px;
+      }
+
+    app-bar.fixed-top.drop-up.bg-lightOlive
+      .grid.condensed
+        .row.cells7
+          .cell.colspan3
+            h1.serif  Klub Młodego Wynalazcy
+          .cell
+          .cell.colspan2.align-right
+            .image-container
+              .frame
+                img(src='pictures/EU/GOT2.jpg')
+            button.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="showCharms('#charmSearch')")
+              span.mif-search
+            a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="openD()")
+              span.mif-cog
+            a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='/')
+              span.mif-lg.mif-home
+          .cell
     block content
+
+  #dialogH(data-role='dialog', data-close-button='true', data-overlay='true', data-overlay-color='op-dark', data-overlay-click-close='true')
+    .example(data-text='Logowanie')
+        h1.text-light Logowanie
+        hr.thin
+        br
+        .input-control.text.full-size(data-role='input')
+          label(for='user_login') Identyfikator:
+          input#user_login(type='text')
+          button.button.helper-button.clear
+            span.mif-cross
+        br
+        br
+        .input-control.full-size(data-role='input')
+          label(for='user_password') Hasło:
+          input#user_password(type='password' oninput="copmar()")
+        br
+        br
+        .butony
+          button.button#Logins(disabled='' onclick="location.href = './options'") Zaloguj
+          button.button.warning(onclick="location.href = '/'") Anuluj
+
+
+
+  app-bar.fixed-bottom.bg-white
+    .grid
+      .row
+        .cell.align-center
+          .image-container
+              img(src='pictures/EU/EU_L.jpg')
+
+
+  script.
+    function openD(){
+      var dialog = $('#dialogH').data('dialog');
+      dialog.open();
+    }
+
+
+    function copmar() {
+      var login = $('#user_login').val();
+      var pass = $('#user_password').val();
+      if (login == "GOT" && pass == "GOTwiosna") {
+        $('#Logins').removeAttr("disabled")
+      } else {
+        $('#Logins').attr("disabled","")
+      }
+    }
+
+
+
+
 

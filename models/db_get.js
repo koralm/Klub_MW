@@ -1,6 +1,6 @@
 var db = require('../models/db');
 
-var all_WS
+var all_WS;
 
 exports.WS_load = function WS_load() {
 

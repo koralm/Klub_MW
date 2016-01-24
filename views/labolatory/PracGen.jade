@@ -1,22 +1,14 @@
 extends ../layout
 
-block content
-    .container(style='width: 100%;')
-        .tile-area.tile-area-scheme-lightOlive.fg-white
-            h1.tile-area-title Klub Młodego Wynalazcy
-            .tile-area-controls
-                button.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(onclick="showCharms('#charmSearch')")
-                    span.mif-search
-                a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='../options')
-                    span.mif-cog
-                a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='/')
-                    span.mif-lg.mif-home
+block scripts
+    script(src='javascripts/labolatory/PracGen_script.js')
 
-    .container.page-content
+block content
+    .container.margtop.page-content
         .flex-grid
             .row.cell-auto-size
                 .cell
-                    h1.no-margin-top Witamy w Labolatorium Genetyki
+                    h1.no-margin-top Witamy w labolatorium
                     h3.no-margin-top Poniżej znajduje się lista aktywnych kart pracy
                     hr(style='height:3px').bg-white
         table#Lita_PracGen.display(cellspacing='0', width='100%')
@@ -29,6 +21,28 @@ block content
             $('#Lita_PracGen').DataTable({
                 "select": true,
                 "data": WS_dataJSON,
+                "dom": 'Bfrtip',
+                "buttons": [
+                    {
+                        text: 'Otwórz kartę pracy',
+                        action: function (e, dt, node, config) {
+
+                            AWS_data = dt.row( { selected: true } ).data()
+
+                            $.ajax({
+                                type: 'POST',
+                                data: JSON.stringify(AWS_data),
+                                contentType: 'application/json',
+                                url: '/WS_load',
+                                success: function (data) {
+                                    alert("Załadowano kartę")
+                                    window.location.replace('/Karta_pracy');
+                                }
+
+                            })
+                        },
+                    }
+                    ],
                 "columns": [
                     {"title": "Temat doświadczenia", "data": "temat_doswiadczenia"},
                     {"title": "Czas trwania [min]", "data": "czas_trwania"},

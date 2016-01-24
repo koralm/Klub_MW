@@ -5,6 +5,7 @@ var db_get = require('../models/db_get');
 var db = require('../models/db');
 var db_save = require('../models/db_save');
 var db_remove = require('../models/db_remove');
+var db_update = require('../models/db_update');
 db_get.WS_load()
 
 
@@ -27,30 +28,47 @@ router.get('/add', function(req, res, next) {
 /*>>>>>>>>>>>>>>LIST<<<<<<<<<<<<<<<*/
 /* GET LIST. */
 router.get('/list', function(req, res, next) {
-  db_get.WS_load();
-  res.render('settings/worksheet/list', { title: 'Klub Młodego Wynalazcy', WS_data: db_get.WS_load()});
+    db.karty_pracy.find().exec(function (err, karty_pracy) {
+        res.render('settings/worksheet/list', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
 });
 
 /*POST LIST REMOVE*/
 router.post('/list', function(req, res){
     var row_data = req.body;
     db_remove.remove_row(row_data._id);
+    db_get.WS_load();
+    res.send(req.body);
+});
+
+router.post('/list_update', function(req, res){
+    var update_data = req.body;
+    db_update.WS_update(update_data);
     res.send(req.body);
 });
 
 
 var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
+var upload = multer({ dest: 'uploads/WS_pictures' })
 
 
 /*>>>>>>>>>>>>>>ADD<<<<<<<<<<<<<<<*/
-router.post('/add', upload.single( 'file' ), function(req, res){
-  var WS_data = req.body.WS_data;
-  console.log(req.body);
-  db_save.WS_add(WS_data);
+router.post('/add_pic', upload.single( 'file' ), function(req, res){
   db_get.WS_load();
-  res.send(req.body);
+  console.log(JSON.stringify(req.file.filename));
+  res.send(JSON.stringify(req.file.filename));
 });
+
+
+/*>>>>>>>>>>>>>>ADD<<<<<<<<<<<<<<<*/
+router.post('/add', function(req, res){
+    var WS_data = req.body.WS_data;
+    db_save.WS_add(WS_data);
+    db_get.WS_load();
+    res.send(req.body);
+});
+
+
 
 /* GET settings/add page. */
 router.get('/calendar', function(req, res, next) {
@@ -62,15 +80,74 @@ router.get('/scheduler', function(req, res, next) {
     res.render('settings/worksheet/scheduler', { title: 'Klub Młodego Wynalazcy'});
 });
 
-/* GET settings/add page. */
-router.get('/PracGen', function(req, res, next) {
-    res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy'});
+/* LAB BIO GET */
+router.get('/BioChemD', function(req, res, next) {
+    db.karty_pracy.find({$and: [{ labolatorium: "BioChem Duże" }, {stan_aktywnosci: "1"}]}).exec(function (err, karty_pracy) {
+        res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
 });
 
-/* GET settings/add page. */
-router.get('/BioChemD', function(req, res, next) {
-    res.render('labolatory/BioChemD', { title: 'Klub Młodego Wynalazcy'});
+/* LAB BIOM GET */
+router.get('/BioChemM', function(req, res, next) {
+    db.karty_pracy.find({$and: [{ labolatorium: "BioChem Małe" }, {stan_aktywnosci: "1"}]}).exec(function (err, karty_pracy) {
+        res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
 });
+
+/* LAB FIZCHEM GET */
+router.get('/FizChem', function(req, res, next) {
+    db.karty_pracy.find({$and: [{ labolatorium: "FizChem PCA" }, {stan_aktywnosci: "1"}]}).exec(function (err, karty_pracy) {
+        res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
+});
+
+/* LAB EL_CYB GET */
+router.get('/Elektr_Cyber', function(req, res, next) {
+    db.karty_pracy.find({$and: [{ labolatorium: "Elektr-Cyber" }, {stan_aktywnosci: "1"}]}).exec(function (err, karty_pracy) {
+        res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
+});
+
+/* LAB DM GET */
+router.get('/Dziec', function(req, res, next) {
+    db.karty_pracy.find({$and: [{ labolatorium: "Dzieci Młodsze" }, {stan_aktywnosci: "1"}]}).exec(function (err, karty_pracy) {
+        res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
+});
+
+/* LAB BIOM GET */
+router.get('/Fiz_OZE', function(req, res, next) {
+    db.karty_pracy.find({$and: [{ labolatorium: "Fizyki i OZE" }, {stan_aktywnosci: "1"}]}).exec(function (err, karty_pracy) {
+        res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
+});
+
+/* PRAC GENETYKI GET*/
+router.get('/PracGen', function(req, res, next) {
+    db.karty_pracy.find({$and: [{ labolatorium: "Prac Genetyki" }, {stan_aktywnosci: "1"}]}).exec(function (err, karty_pracy) {
+        res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
+});
+
+/* LAB BIOM GET */
+router.get('/RK_INV', function(req, res, next) {
+    db.karty_pracy.find({$and: [{ labolatorium: "Prac RK_INV" }, {stan_aktywnosci: "1"}]}).exec(function (err, karty_pracy) {
+        res.render('labolatory/PracGen', { title: 'Klub Młodego Wynalazcy', WS_data: karty_pracy});
+    });
+});
+
+var AWS_data;
+
+router.post('/WS_load', function(req, res){
+    AWS_data = req.body;
+    res.send(req.body);
+});
+
+router.get('/Karta_pracy', function(req, res, next) {
+    res.render('actual_WS', { title: 'Klub Młodego Wynalazcy', WS_data: AWS_data});
+});
+
+
 
 /*
 router.post('/BioChemD', upload.single( 'file' ), function(req, res){

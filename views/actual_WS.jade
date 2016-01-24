@@ -1,0 +1,125 @@
+extends layout
+
+block scripts
+    script(src='javascripts/actual_WS.js')
+
+block content
+    .container.margbotop.page-content
+        .example(data-text='Karta Pracy')
+            .flex-grid
+                .row.flex-just-center
+                    .cell.size12.align-center
+                            h1#GWS_title Tytuł karty pracy
+                            h3#GWS_subtitle Podtytuł karty pracy
+                .row.flex-just-center.bg-grayLighter
+                    .cell.size12
+                        h4
+                            strong  Niezbędne pomoce naukowe i sprzęt:
+                .row.flex-just-center
+                    .cell.size4
+                        .listview.set-border.padding10(data-role='listview')
+                            .list-group
+                                span.list-group-toggle Odczynniki
+                                .list-group-content#Odczynniki_list
+
+                    .cell.size4
+                        .listview.set-border.padding10(data-role='listview')
+                            .list-group
+                                span.list-group-toggle Sprzęt labolatoryjny
+                                .list-group-content#Sprzet_list
+
+                    .cell.size4
+                        .listview.set-border.padding10(data-role='listview')
+                            .list-group
+                                span.list-group-toggle Akcesoria
+                                .list-group-content#Akcesoria_list
+                .row.flex-just-center.bg-grayLighter
+                    .cell.size12
+                        h4
+                            strong  Instrukcja wykonywania ćwiczenia:
+                .row.flex-just-center
+                    .cell.size12
+                        .align-justify
+                            h4#GWS_instruction
+                .row.flex-just-center.bg-grayLighter
+                    .cell.size12
+                        h4
+                            strong  Obserwacje:
+                .row.flex-just-center
+                    .cell.size10
+                        .carousel(id="carousel" data-height='400', data-control-next="<span class='mif-chevron-right'></span>", data-control-prev="<span class='mif-chevron-left'></span>")
+                            .slide.align-center
+                                h2 Obrazy pomocne przy obserwacji
+                                p
+                                    | Tutaj znajdują się zdjęcia i obrazki pomocne przy obserwacjach
+                            #Obraz
+
+
+                .row.flex-just-center.bg-grayLighter
+                    .cell.size12
+                        h4
+                            strong  Wnioski:
+                .row
+                    .cell.colspan12
+                        .input-control.textarea.full-size(data-role='input', data-text-auto-resize="true")
+                            textarea(placeholder="Tutaj jest miejsce na wnioski dotyczące doświadczeń")#Wnioski
+
+                .row.flex-just-center.bg-grayLighter
+                    .cell.size12
+                        h4
+                            strong  Podsumowanie:
+
+                .row.flex-just-center
+                    .cell.colspan3
+                        h4 Imię i nazwisko badacza:
+                    .cell.colspan9
+                        .input-control.full-size.text
+                            input(type='text')
+                .row.flex-just-center
+                    .cell.colspan3
+                        h4 Adres email:
+                    .cell.colspan9
+                        .input-control.full-size.text
+                            input(type='text')
+                .row.flex-just-center
+                    .cell.colspan3
+                        h4 Ocena doświadczenia:
+                    .cell.colspan9.align-center
+                        .rating(data-role='rating', data-size='large', data-on-rate='demo_func_onRated')
+                .row
+                    .cell.colspan12
+                        button.button.large-button.full-size.success Zakończ doświadczenie
+    script.
+        $(document).ready(function () {
+            var WS_dataJSON = !{JSON.stringify(WS_data)}
+        $('#GWS_title').text(WS_dataJSON.temat_doswiadczenia)
+        $('#GWS_subtitle').text(WS_dataJSON.sub_temat_doswiadczenia)
+        $('#GWS_instruction').text(WS_dataJSON.instrukcja)
+
+        if ((WS_dataJSON.sprzęt[0].length) > 0){
+            $.each(WS_dataJSON.sprzęt, function (i) {
+                $('#Sprzet_list').append('<div class="list">' + '<span class="list-icon mif-power-cord"></span>' + '<span class="list-title">' + ' ' + WS_dataJSON.sprzęt[i] + '</span>' + '</div>');
+            })
+        }
+
+        if ((WS_dataJSON.akcesoria[0].length) > 0) {
+            $.each(WS_dataJSON.akcesoria, function (i) {
+                $('#Akcesoria_list').append('<div class="list">' + '<span class="list-icon mif-wrench"></span>' + '<span class="list-title">' + ' ' + WS_dataJSON.akcesoria[i] + '</span>' + '</div>');
+            })
+        }
+
+        if ((WS_dataJSON.odczynniki[0].length) > 0) {
+            $.each(WS_dataJSON.odczynniki, function (i) {
+                $('#Odczynniki_list').append('<div class="list">'+'<span class="list-icon mif-lab"></span>'+'<span class="list-title">'+' '+WS_dataJSON.odczynniki[i]+'</span>'+'</div>');
+            })
+        }
+
+        $.each(WS_dataJSON.obrazki, function (i) {
+            $('#Obraz').append('<div class="slide"><img src="'+'WS_pictures/'+WS_dataJSON.obrazki[i].replace('"', '').replace('"', '')+'" data-role="fitImage" data-format="fill"></div>');
+        })
+
+        $(function () {
+            $("#carousel").carousel();
+        });
+        });
+
