@@ -1,36 +1,39 @@
 extends ../layout
 
 block content
-    .container.margtop(style='width: 90%;')
-        .tile-group
-            span.tile-group-title Karty Pracy
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../add';")
-                    #Add_worksheet.tile-content(style='background: top left no-repeat; background-size: cover')
-                        .live-slide
-                            .padding50
-                                h1 Dodaj kartę pracy
-                    .tile-label Dodaj kartę pracy
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../list';")
-                    #Show_worksheet.tile-content(style='background: top left no-repeat; background-size: cover')
-                        .live-slide
-                            .padding50
-                                h1 Przeglądaj karty pracy
-                    .tile-label Przeglądaj karty pracy
+    .container.margbotop2(style='width: 90%;')
+        .grid
+            .row
+                .cell
+                    .tile-group
+                        span.tile-group-title Karty Pracy
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../add';")
+                                #Add_worksheet.tile-content(style='background: top left no-repeat; background-size: cover')
+                                    .live-slide
+                                        .padding50
+                                            h1 Dodaj kartę pracy
+                                .tile-label Dodaj kartę pracy
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../list';")
+                                #Show_worksheet.tile-content(style='background: top left no-repeat; background-size: cover')
+                                    .live-slide
+                                        .padding50
+                                            h1 Przeglądaj karty pracy
+                                .tile-label Przeglądaj karty pracy
 
 
-        .tile-group
-            span.tile-group-title Obciązenie labolatoriów
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../calendar';")
-                    #Calendar.tile-content(style='background: top left no-repeat; background-size: cover')
-                        .live-slide
-                            .padding50
-                                h1 Sprawdź wolne terminy
-                    .tile-label Kalendarz
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../scheduler';")
-                    #Scheduler.tile-content(style='background: top left no-repeat; background-size: cover')
-                        .live-slide
-                            .padding50
-                                h1 Zarezerwuj salę
-                    .tile-label Terminarz
+                    .tile-group
+                        span.tile-group-title Obciązenie labolatoriów
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../calendar';")
+                                #Calendar.tile-content(style='background: top left no-repeat; background-size: cover')
+                                    .live-slide
+                                        .padding50
+                                            h1 Sprawdź wolne terminy
+                                .tile-label Kalendarz
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown' onclick="location.href = '../scheduler';")
+                                #Scheduler.tile-content(style='background: top left no-repeat; background-size: cover')
+                                    .live-slide
+                                        .padding50
+                                            h1 Zarezerwuj salę
+                                .tile-label Terminarz

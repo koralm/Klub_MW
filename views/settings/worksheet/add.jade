@@ -23,120 +23,123 @@ block scripts
         });
 
 block content
-    .container.margtop.page-content
-        .flex-grid
-            .row.cell-auto-size
+    .container.margbotop.page-content
+        .grid
+            .row
                 .cell
-                    h1.no-margin-top Dodawanie karty pracy
-                    hr(style='height:3px').bg-white
-            .row.cell-auto-size
-                .cell
-                    .h3 Dotyczy labolatoriów:
-                    select.lab-list.full-size(multiple='multiple')
-                        option
-                            option(value='BioChem Duże') BioChem Duże
-                            option(value='BioChem Małe') BioChem Małe
-                            option(value='FizChem PCA') FizChem PCA
-                            option(value='Elektr-Cyber') Elektr-Cyber
-                            option(value='Dzieci Młodsze') Dzieci Młodsze
-                            option(value='Fizyki i OZE') Fizyki i OZE
-                            option(value='Prac Genetyki') Prac Genetyki
-                            option(value='Prac RK_INV') Prac RK_INV
+                    .flex-grid
+                        .row.cell-auto-size
+                            .cell
+                                h1.no-margin-top Dodawanie karty pracy
+                                hr(style='height:3px').bg-white
+                        .row.cell-auto-size
+                            .cell
+                                .h3 Dotyczy labolatoriów:
+                                select.lab-list.full-size(multiple='multiple')
+                                    option
+                                        option(value='BioChem Duże') BioChem Duże
+                                        option(value='BioChem Małe') BioChem Małe
+                                        option(value='FizChem PCA') FizChem PCA
+                                        option(value='Elektr-Cyber') Elektr-Cyber
+                                        option(value='Dzieci Młodsze') Dzieci Młodsze
+                                        option(value='Fizyki i OZE') Fizyki i OZE
+                                        option(value='Prac Genetyki') Prac Genetyki
+                                        option(value='Prac RK_INV') Prac RK_INV
 
 
-        .worksheet.bg-lime(data-text='stylized lists')
-            .wizard(id="WS_wizard", data-role='wizard', data-on-finish="post_WS", data-on-cancel="location.href = './options'", data-stepper-clickable="true")
-                .steps
-                    .step
-                        .grid
-                            .row
-                                .cell
-                                    ul.step-list
-                                        li
-                                            h2.no-margin-top Temat doświadczenia
-                                            hr.bg-red
-                                            div
-                                                | Proszę o podanie tematu doświadczenia:
-                                            .input-control.text.full-size
-                                                input(id='WS_title', type='text', placeholder='Pole tekstowe')
-                                        li
-                                            h2.no-margin-top Metoda badania
-                                            hr.bg-green
-                                            div
-                                                | Proszę o podanie podtytułu lub metoty badania:
-                                            .input-control.text.full-size
-                                                input(id='WS_subtitle', type='text', placeholder='Pole tekstowe')
-                    .step
-                        .grid
-                            .row
-                                .cell
-                                    ul.step-list
-                                        li
-                                            h2.no-margin-top Odczynnki
-                                            hr.bg-red
-                                            div
-                                                | Proszę o podanie niezbędnych odczynników (po przecinku):
-                                            .input-control.text.full-size
-                                                input(id='WS_reagent', type='text', placeholder='Tutaj pisać')
-                                        li
-                                            h2.no-margin-top Sprzęt labolatoryjny
-                                            hr.bg-green
-                                            div
-                                                | Proszę o podanie niezbędnego sprzętu labolatoryjnego (po przecinku):
-                                            .input-control.text.full-size
-                                                input(id='WS_equipment', type='text', placeholder='Tutaj pisać')
-                                        li
-                                            h2.no-margin-top Akcesoria
-                                            hr.bg-green
-                                            div
-                                                | Proszę o podanie niezbędnych akcesoriów (po przecinku):
-                                            .input-control.text.full-size
-                                                input(id='WS_accesories', type='text', placeholder='Tutaj pisać')
-                    .step
-                        .grid
-                            .row
-                                .cell
-                                    ul.step-list
-                                        li
-                                            h2.no-margin-top Instrukcja ćwiczenia
-                                            hr.bg-red
-                                            div
-                                                | Proszę o opisanie przebiegu doświadczenia:
-                                            .grid
-                                                .row
-                                                    .cell
-                                                        .input-control.textarea.full-size(data-role='input', data-text-auto-resize="true")
-                                                            textarea(id='WS_description')
-                    .step
-                        .grid
-                            .row
-                                .cell
-                                    ul.step-list
-                                        li
-                                            h2.no-margin-top Obrazy pomocnicze
-                                            hr.bg-red
-                                            div
-                                                | Proszę o dodanie obrazów lub zdjęć pomocniczych:
-                                            .grid
-                                                .row
-                                                    .cell
-                                                        form.dropzone(action='/add_pic' id="myAwesomeDropzone" method="post")
-                    .step
-                        .grid
-                            .row
-                                .cell
-                                    ul.step-list
-                                        li
-                                            h2.no-margin-top Czas trwania
-                                            hr.bg-red
-                                            div
-                                                | Proszę o podanie czasu trwania zajęć (w minutach):
-                                            .input-control.text.full-size
-                                                input(id='WS_duration_time', type='number', placeholder='Tutaj pisać')
-                                        li
-                                            h2.no-margin-top Autor
-                                            hr.bg-green
-                                            div
-                                                | Proszę o podanie identyfikatora autora:
-                                            .input-control.text.full-size
-                                                input(id='WS_author', type='text', placeholder='Tutaj pisać')
+                    .worksheet.bg-lime(data-text='stylized lists')
+                        .wizard(id="WS_wizard", data-role='wizard', data-on-finish="post_WS", data-on-cancel="location.href = './options'", data-stepper-clickable="true")
+                            .steps
+                                .step
+                                    .grid
+                                        .row
+                                            .cell
+                                                ul.step-list
+                                                    li
+                                                        h2.no-margin-top Temat doświadczenia
+                                                        hr.bg-red
+                                                        div
+                                                            | Proszę o podanie tematu doświadczenia:
+                                                        .input-control.text.full-size
+                                                            input(id='WS_title', type='text', placeholder='Pole tekstowe')
+                                                    li
+                                                        h2.no-margin-top Metoda badania
+                                                        hr.bg-green
+                                                        div
+                                                            | Proszę o podanie podtytułu lub metoty badania:
+                                                        .input-control.text.full-size
+                                                            input(id='WS_subtitle', type='text', placeholder='Pole tekstowe')
+                                .step
+                                    .grid
+                                        .row
+                                            .cell
+                                                ul.step-list
+                                                    li
+                                                        h2.no-margin-top Odczynnki
+                                                        hr.bg-red
+                                                        div
+                                                            | Proszę o podanie niezbędnych odczynników (po przecinku):
+                                                        .input-control.text.full-size
+                                                            input(id='WS_reagent', type='text', placeholder='Tutaj pisać')
+                                                    li
+                                                        h2.no-margin-top Sprzęt labolatoryjny
+                                                        hr.bg-green
+                                                        div
+                                                            | Proszę o podanie niezbędnego sprzętu labolatoryjnego (po przecinku):
+                                                        .input-control.text.full-size
+                                                            input(id='WS_equipment', type='text', placeholder='Tutaj pisać')
+                                                    li
+                                                        h2.no-margin-top Akcesoria
+                                                        hr.bg-green
+                                                        div
+                                                            | Proszę o podanie niezbędnych akcesoriów (po przecinku):
+                                                        .input-control.text.full-size
+                                                            input(id='WS_accesories', type='text', placeholder='Tutaj pisać')
+                                .step
+                                    .grid
+                                        .row
+                                            .cell
+                                                ul.step-list
+                                                    li
+                                                        h2.no-margin-top Instrukcja ćwiczenia
+                                                        hr.bg-red
+                                                        div
+                                                            | Proszę o opisanie przebiegu doświadczenia:
+                                                        .grid
+                                                            .row
+                                                                .cell
+                                                                    .input-control.textarea.full-size(data-role='input', data-text-auto-resize="true")
+                                                                        textarea(id='WS_description')
+                                .step
+                                    .grid
+                                        .row
+                                            .cell
+                                                ul.step-list
+                                                    li
+                                                        h2.no-margin-top Obrazy pomocnicze
+                                                        hr.bg-red
+                                                        div
+                                                            | Proszę o dodanie obrazów lub zdjęć pomocniczych:
+                                                        .grid
+                                                            .row
+                                                                .cell
+                                                                    form.dropzone(action='/add_pic' id="myAwesomeDropzone" method="post")
+                                .step
+                                    .grid
+                                        .row
+                                            .cell
+                                                ul.step-list
+                                                    li
+                                                        h2.no-margin-top Czas trwania
+                                                        hr.bg-red
+                                                        div
+                                                            | Proszę o podanie czasu trwania zajęć (w minutach):
+                                                        .input-control.text.full-size
+                                                            input(id='WS_duration_time', type='number', placeholder='Tutaj pisać')
+                                                    li
+                                                        h2.no-margin-top Autor
+                                                        hr.bg-green
+                                                        div
+                                                            | Proszę o podanie identyfikatora autora:
+                                                        .input-control.text.full-size
+                                                            input(id='WS_author', type='text', placeholder='Tutaj pisać')

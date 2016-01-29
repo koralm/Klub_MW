@@ -13,7 +13,6 @@ html
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-icons.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-responsive.css')
     link(rel='stylesheet', href='Metro-UI-CSS-master/build/css/metro-schemes.css')
-
     script(src='jquery/dist/jquery.js')
     script(src='moment/moment.js')
     script(src='jquery-ui/jquery-ui.js')
@@ -42,19 +41,40 @@ html
       }
 
       .margtop {
-        margin-top: 100px;
+        margin-top: 50px;
       }
 
       .margbotop {
-        margin-top: 100px;
+        margin-top: 50px;
         margin-bottom: 150px;
       }
 
-      .margbot {
-        margin-bottom: 100px;
+      .margbotop2 {
+        margin-top: 50px;
+        margin-bottom: 300px;
       }
 
-    app-bar.fixed-top.drop-up.bg-lightOlive
+      .margbot {
+        margin-bottom: 200px;
+      }
+
+      .dupa {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+      }
+
+      .footers {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        background-color: #efefef;
+        text-align: center;
+      }
+
+    app-bar.drop-up.bg-lightOlive
       .grid.condensed
         .row.cells7
           .cell.colspan3
@@ -71,7 +91,18 @@ html
             a.square-button.bg-transparent.fg-white.bg-hover-dark.no-border(href='/')
               span.mif-lg.mif-home
           .cell
+
     block content
+
+    footer.bg-white
+      .bottom-menu-wrapper
+        ul.horizontal-menu.compact.dupa
+          li
+            p
+          li.align-center
+            .image-container
+              img(src='pictures/EU/EU_L.jpg')
+
 
   #dialogH(data-role='dialog', data-close-button='true', data-overlay='true', data-overlay-color='op-dark', data-overlay-click-close='true')
     .example(data-text='Logowanie')
@@ -95,13 +126,6 @@ html
           button.button.warning(onclick="location.href = '/'") Anuluj
 
 
-
-  app-bar.fixed-bottom.bg-white
-    .grid
-      .row
-        .cell.align-center
-          .image-container
-              img(src='pictures/EU/EU_L.jpg')
 
 
   script.

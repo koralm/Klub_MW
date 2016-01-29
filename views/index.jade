@@ -2,139 +2,148 @@ extends layout
 
 block content
 
-    .container.margbotop(style='width: 90%;')
-        .tile-group
-            span.tile-group-title Labolatorium 1
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
-                    #BioLChemD.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './BioChemD'")
-                        .image-container
-                            .frame
-                                .live-slide
-                                    img(src='/pictures/Bio/flower.jpg', data-role='fitImage', data-format='fill')
-                                .live-slide
-                                    img(src='/pictures/Bio/greenpeop.jpg', data-role='fitImage', data-format='fill')
-                            .image-overlay.op-green
-                                h2 Laboratorium biologiczno-chemiczne duże
-                                p
-                                    | Zajęcia dotyczące Biologii.
-                    .tile-label Laboratorium biologiczno-chemiczne duże
+    .container.margbotop(style='width: 90%')
+        .grid
+            .row
+                .cell
+                    .tile-group
+                        span.tile-group-title Labolatorium 1
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                                #BioLChemD.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './BioChemD'")
+                                    .image-container
+                                        .frame
+                                            .live-slide
+                                                img(src='/pictures/Bio/flower.jpg', data-role='fitImage', data-format='fill')
+                                            .live-slide
+                                                img(src='/pictures/Bio/greenpeop.jpg', data-role='fitImage', data-format='fill')
+                                        .image-overlay.op-green
+                                            h2 Laboratorium biologiczno-chemiczne duże
+                                            p
+                                                | Zajęcia dotyczące Biologii.
+                                .tile-label Laboratorium biologiczno-chemiczne duże
 
-        .tile-group
-            span.tile-group-title Labolatorium 2
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
-                    #BioLChemM.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './BioChemM';")
-                        .image-container
-                            .frame
-                                .live-slide
-                                    img(src='/pictures/BioM/bug.jpg', data-role='fitImage', data-format='fill')
-                                .live-slide
-                                    img(src='/pictures/BioM/flask1.jpg', data-role='fitImage', data-format='fill')
-                            .image-overlay.op-green
-                                h2 Laboratorium biologiczno-chemiczne małe
-                                p
-                                    | Zajęcia dotyczące Biologii.
-                    .tile-label Laboratorium biologiczno-chemiczne małe
+                    .tile-group
+                        span.tile-group-title Labolatorium 2
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                                #BioLChemM.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './BioChemM';")
+                                    .image-container
+                                        .frame
+                                            .live-slide
+                                                img(src='/pictures/BioM/bug.jpg', data-role='fitImage', data-format='fill')
+                                            .live-slide
+                                                img(src='/pictures/BioM/flask1.jpg', data-role='fitImage', data-format='fill')
+                                        .image-overlay.op-green
+                                            h2 Laboratorium biologiczno-chemiczne małe
+                                            p
+                                                | Zajęcia dotyczące Biologii.
+                                .tile-label Laboratorium biologiczno-chemiczne małe
 
-        .tile-group
-            span.tile-group-title Labolatorium 3
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
-                    #FizChem.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './FizChem';")
-                        .image-container
-                            .frame
-                                .live-slide
-                                    img(src='/pictures/FizChem/probes.jpg', data-role='fitImage', data-format='fill')
-                                .live-slide
-                                    img(src='/pictures/FizChem/math.jpg', data-role='fitImage', data-format='fill')
-                            .image-overlay.op-green
-                                h2 Laboratorium fizyczno-chemiczne PCA
-                                p
-                                    | Zajęcia dotyczące fizyki i chemii.
-                    .tile-label Laboratorium fizyczno-chemiczne PCA
+                    .tile-group
+                        span.tile-group-title Labolatorium 3
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                                #FizChem.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './FizChem';")
+                                    .image-container
+                                        .frame
+                                            .live-slide
+                                                img(src='/pictures/FizChem/probes.jpg', data-role='fitImage', data-format='fill')
+                                            .live-slide
+                                                img(src='/pictures/FizChem/math.jpg', data-role='fitImage', data-format='fill')
+                                        .image-overlay.op-green
+                                            h2 Laboratorium fizyczno-chemiczne PCA
+                                            p
+                                                | Zajęcia dotyczące fizyki i chemii.
+                                .tile-label Laboratorium fizyczno-chemiczne PCA
 
-        .tile-group
-            span.tile-group-title Labolatorium 4
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
-                    #Elektr_Cyber.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './Elektr_Cyber';")
-                        .image-container
-                            .frame
-                                .live-slide
-                                    img(src='/pictures/ElCyber/electronics.jpg', data-role='fitImage', data-format='fill')
-                                .live-slide
-                                    img(src='/pictures/ElCyber/man.png', data-role='fitImage', data-format='fill')
-                            .image-overlay.op-green
-                                h2 Laboratorium elektroniki i cybernetyki
-                                p
-                                    | Zajęcia dotyczące elektroniki i cybernetyki.
-                    .tile-label Laboratorium elektroniki i cybernetyki
+                    .tile-group
+                        span.tile-group-title Labolatorium 4
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                                #Elektr_Cyber.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './Elektr_Cyber';")
+                                    .image-container
+                                        .frame
+                                            .live-slide
+                                                img(src='/pictures/ElCyber/electronics.jpg', data-role='fitImage', data-format='fill')
+                                            .live-slide
+                                                img(src='/pictures/ElCyber/man.png', data-role='fitImage', data-format='fill')
+                                        .image-overlay.op-green
+                                            h2 Laboratorium elektroniki i cybernetyki
+                                            p
+                                                | Zajęcia dotyczące elektroniki i cybernetyki.
+                                .tile-label Laboratorium elektroniki i cybernetyki
 
-        .tile-group
-            span.tile-group-title Labolatorium 5
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
-                    #Dzieci_mlodsze.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './Dziec';")
-                        .image-container
-                            .frame
-                                .live-slide
-                                    img(src='/pictures/Dziec/lightbulb.jpg', data-role='fitImage', data-format='fill')
-                                .live-slide
-                                    img(src='/pictures/Dziec//murm.jpg', data-role='fitImage', data-format='fill')
-                            .image-overlay.op-green
-                                h2 Laboratorium dzieci młodszych
-                                p
-                                    | Zajęcia dla mołodszych dzieci.
-                    .tile-label Laboratorium dzieci młodszych
+                    .tile-group
+                        span.tile-group-title Labolatorium 5
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                                #Dzieci_mlodsze.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './Dziec';")
+                                    .image-container
+                                        .frame
+                                            .live-slide
+                                                img(src='/pictures/Dziec/lightbulb.jpg', data-role='fitImage', data-format='fill')
+                                            .live-slide
+                                                img(src='/pictures/Dziec//murm.jpg', data-role='fitImage', data-format='fill')
+                                        .image-overlay.op-green
+                                            h2 Laboratorium dzieci młodszych
+                                            p
+                                                | Zajęcia dla mołodszych dzieci.
+                                .tile-label Laboratorium dzieci młodszych
 
-        .tile-group
-            span.tile-group-title Labolatorium 6
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
-                    #Fiz_OZE.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './Fiz_OZE';")
-                        .image-container
-                            .frame
-                                .live-slide
-                                    img(src='/pictures/OZE/earth.jpg', data-role='fitImage', data-format='fill')
-                                .live-slide
-                                    img(src='/pictures/OZE/solar.jpg', data-role='fitImage', data-format='fill')
-                            .image-overlay.op-green
-                                h2 Laboratorium fizyki i energii odnawialnej
-                                p
-                                    | Zajęcia dotyczące fizyki i energii odnawialnych.
-                    .tile-label Laboratorium fizyki i energii odnawialnej
+                    .tile-group
+                        span.tile-group-title Labolatorium 6
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                                #Fiz_OZE.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './Fiz_OZE';")
+                                    .image-container
+                                        .frame
+                                            .live-slide
+                                                img(src='/pictures/OZE/earth.jpg', data-role='fitImage', data-format='fill')
+                                            .live-slide
+                                                img(src='/pictures/OZE/solar.jpg', data-role='fitImage', data-format='fill')
+                                        .image-overlay.op-green
+                                            h2 Laboratorium fizyki i energii odnawialnej
+                                            p
+                                                | Zajęcia dotyczące fizyki i energii odnawialnych.
+                                .tile-label Laboratorium fizyki i energii odnawialnej
 
-        .tile-group
-            span.tile-group-title Pracownia 1
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
-                    #Prac_gen.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './PracGen';")
-                        .image-container
-                            .frame
-                                .live-slide
-                                    img(src='/pictures/Genetics/DNA_1.jpg', data-role='fitImage', data-format='fill')
-                                .live-slide
-                                    img(src='/pictures/Genetics/DNA_2.jpg', data-role='fitImage', data-format='fill')
-                            .image-overlay.op-green
-                                h2 Pracownia genetyki
-                                p
-                                    | Zajęcia dotyczące genetyki.
-                    .tile-label Pracownia genetyki
+                    .tile-group
+                        span.tile-group-title Pracownia 1
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                                #Prac_gen.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './PracGen';")
+                                    .image-container
+                                        .frame
+                                            .live-slide
+                                                img(src='/pictures/Genetics/DNA_1.jpg', data-role='fitImage', data-format='fill')
+                                            .live-slide
+                                                img(src='/pictures/Genetics/DNA_2.jpg', data-role='fitImage', data-format='fill')
+                                        .image-overlay.op-green
+                                            h2 Pracownia genetyki
+                                            p
+                                                | Zajęcia dotyczące genetyki.
+                                .tile-label Pracownia genetyki
 
-        .tile-group.margbot
-            span.tile-group-title Pracownia 2
-            .tile-container
-                .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
-                    #RK_INV.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './RK_INV';")
-                        .image-container
-                            .frame
-                                .live-slide
-                                    img(src='/pictures/RK_INV/sprout.jpg', data-role='fitImage', data-format='fill')
-                                .live-slide
-                                    img(src='/pictures/RK_INV/larch.jpg', data-role='fitImage', data-format='fill')
-                            .image-overlay.op-green
-                                h2 Pracownia roślinnych kultur invitro
-                                p
-                                    | Zajęcia dotyczące kultur roślinnych invitro.
-                    .tile-label Pracownia roślinnych kultur invitro
+                    .tile-group
+                        span.tile-group-title Pracownia 2
+                        .tile-container
+                            .tile-large.bg-steel.fg-white(data-role='tile' data-effect='slideUpDown')
+                                #RK_INV.tile-content(style='background: top left no-repeat; background-size: cover' onclick="location.href = './RK_INV';")
+                                    .image-container
+                                        .frame
+                                            .live-slide
+                                                img(src='/pictures/RK_INV/sprout.jpg', data-role='fitImage', data-format='fill')
+                                            .live-slide
+                                                img(src='/pictures/RK_INV/larch.jpg', data-role='fitImage', data-format='fill')
+                                        .image-overlay.op-green
+                                            h2 Pracownia roślinnych kultur invitro
+                                            p
+                                                | Zajęcia dotyczące kultur roślinnych invitro.
+                                .tile-label Pracownia roślinnych kultur invitro
+            //.row
+                .cell
+                    app-bar.bg-white.fixed-bottom.full-size
+                        .cell.align-center
+                            .image-container
+                                img(src='pictures/EU/EU_L.jpg')

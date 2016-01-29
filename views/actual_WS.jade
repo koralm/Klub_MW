@@ -85,7 +85,7 @@ block content
                     .cell.colspan3
                         h4 Ocena doświadczenia:
                     .cell.colspan9.align-center
-                        .rating(data-role='rating', data-size='large', data-on-rate='demo_func_onRated')
+                        .rating(data-role='rating', data-size='large', data-on-rate='demo_func_onRate')
                 .row
                     .cell.colspan12
                         button.button.large-button.full-size.success Zakończ doświadczenie
@@ -123,3 +123,7 @@ block content
         });
         });
 
+        function demo_func_onRate(value, star, widget) {
+            alert('Dziękuję za ocenę');
+            return true;
+        }
